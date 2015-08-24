@@ -1,0 +1,11 @@
+@C:\Users\robin\Desktop\ISI\DBMS\data\regions;
+@C:\Users\robin\Desktop\ISI\DBMS\data\countries;
+@C:\Users\robin\Desktop\ISI\DBMS\data\locations;
+@C:\Users\robin\Desktop\ISI\DBMS\data\departments;
+@C:\Users\robin\Desktop\ISI\DBMS\data\jobs;
+@C:\Users\robin\Desktop\ISI\DBMS\data\jobhistory;
+@C:\Users\robin\Desktop\ISI\DBMS\data\employees;
+
+select * from tab;
+
+

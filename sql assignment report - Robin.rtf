@@ -1,0 +1,1155 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Courier New;}}
+{\colortbl ;\red0\green77\blue187;}
+{\*\generator Msftedit 5.41.21.2509;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang9\f0\fs22 @C:\\Users\\robin\\Desktop\\ISI\\DBMS\\data\\regions;\par
+@C:\\Users\\robin\\Desktop\\ISI\\DBMS\\data\\countries;\par
+@C:\\Users\\robin\\Desktop\\ISI\\DBMS\\data\\locations;\par
+@C:\\Users\\robin\\Desktop\\ISI\\DBMS\\data\\departments;\par
+@C:\\Users\\robin\\Desktop\\ISI\\DBMS\\data\\jobs;\par
+@C:\\Users\\robin\\Desktop\\ISI\\DBMS\\data\\jobhistory;\par
+@C:\\Users\\robin\\Desktop\\ISI\\DBMS\\data\\employees;\par
+\par
+select * from tab;\par
+\par
+\pard\sl240\slmult1\b 1. Display details of jobs where the minimum salary is greater than 10000.\par
+\b0\par
+\cf1 query:\par
+select * from jobs where min_salary>10000;\cf0\par
+\par
+Output:\par
+\pard\lang1033\f1 "JOB_ID"\tab "JOB_TITLE"\tab "MIN_SALARY"\tab "MAX_SALARY"\par
+"AD_PRES"\tab "President"\tab 20080\tab 40000\par
+\pard\sl240\slmult1 "AD_VP"\tab "Administration Vice President"\tab 15000\tab 30000\par
+\par
+\lang9\f0\par
+2. \b Display the first name and join date of the employees who joined between 2002 and 2005.\par
+\cf1\b0 query:\par
+select first_name,hire_date as Join_date \par
+from employees \par
+where to_char(hire_date,'yyyy') between 2002 and 2005;\par
+\cf0\par
+Output:\par
+"FIRST_NAME"\tab "JOIN_DATE"\par
+"Steven"\tab 17-JUN-03\par
+"Neena"\tab 21-SEP-05\par
+"David"\tab 25-JUN-05\par
+"Nancy"\tab 17-AUG-02\par
+"Daniel"\tab 16-AUG-02\par
+"John"\tab 28-SEP-05\par
+"Ismael"\tab 30-SEP-05\par
+"Den"\tab 07-DEC-02\par
+"Alexander"\tab 18-MAY-03\par
+"Shelli"\tab 24-DEC-05\par
+"Sigal"\tab 24-JUL-05\par
+"Matthew"\tab 18-JUL-04\par
+"Adam"\tab 10-APR-05\par
+"Payam"\tab 01-MAY-03\par
+"Shanta"\tab 10-OCT-05\par
+"Julia"\tab 16-JUL-05\par
+"Laura"\tab 20-AUG-05\par
+"Mozhe"\tab 30-OCT-05\par
+"James"\tab 16-FEB-05\par
+"Jason"\tab 14-JUN-04\par
+"Renske"\tab 14-JUL-03\par
+"Stephen"\tab 26-OCT-05\par
+"Trenna"\tab 17-OCT-03\par
+"Curtis"\tab 29-JAN-05\par
+"John"\tab 01-OCT-04\par
+"Karen"\tab 05-JAN-05\par
+"Alberto"\tab 10-MAR-05\par
+"Peter"\tab 30-JAN-05\par
+"David"\tab 24-MAR-05\par
+"Peter"\tab 20-AUG-05\par
+"Janette"\tab 30-JAN-04\par
+"Patrick"\tab 04-MAR-04\par
+"Allan"\tab 01-AUG-04\par
+\par
+\par
+\par
+\b 3. Display first name and join date of the employees who is either IT Programmer or Sales Man.\cf1\b0\par
+query:\par
+select first_name,hire_date as Join_date\par
+from employees\par
+where job_id in ('IT_PROG','SA_MAN');\cf0\par
+\par
+Output:\par
+"FIRST_NAME"\tab "JOIN_DATE"\par
+"Alexander"\tab 03-JAN-06\par
+"Bruce"\tab 21-MAY-07\par
+"David"\tab 25-JUN-05\par
+"Valli"\tab 05-FEB-06\par
+"Diana"\tab 07-FEB-07\par
+"John"\tab 01-OCT-04\par
+"Karen"\tab 05-JAN-05\par
+"Alberto"\tab 10-MAR-05\par
+"Gerald"\tab 15-OCT-07\par
+"Eleni"\tab 29-JAN-08\par
+\par
+\b 4. Display employees who joined after 1st January 2008.\b0\par
+\cf1\par
+query:\par
+select first_name\par
+from employees \par
+where hire_date > '1-jan-2008';\cf0\par
+\par
+output:\par
+"FIRST_NAME"\par
+"Steven"\par
+"Hazel"\par
+"Eleni"\par
+"Mattea"\par
+"David"\par
+"Sundar"\par
+"Amit"\par
+"Sundita"\par
+"Charles"\par
+"Girard"\par
+"Douglas"\par
+\par
+\b 5. Display details of employee with ID 150 or 160\b0 .\par
+\cf1\par
+query:\par
+select *\par
+from employees\par
+where employee_id in (150,160);\cf0\par
+\par
+Output:\par
+\par
+"EMPLOYEE_ID"\tab "FIRST_NAME"\tab "LAST_NAME"\tab "EMAIL"\tab "PHONE_NUMBER"\tab "HIRE_DATE"\tab "JOB_ID"\tab "SALARY"\tab "COMMISSION_PCT"\tab "MANAGER_ID"\tab "DEPARTMENT_ID"\par
+150\tab "Peter"\tab "Tucker"\tab "PTUCKER"\tab "011.44.1344.129268"\tab 30-JAN-05\tab "SA_REP"\tab 10000\tab 0.3\tab 145\tab 80\par
+160\tab "Louise"\tab "Doran"\tab "LDORAN"\tab "011.44.1345.629268"\tab 15-DEC-05\tab "SA_REP"\tab 7500\tab 0.3\tab 146\tab 80\par
+\par
+\b 6. Display first name, salary, commission pct, and hire date for employees with salary less than 10000.\par
+\b0\par
+\cf1 query:\par
+select first_name,salary,commission_pct,hire_date\par
+from employees\par
+where salary < 10000;\cf0\par
+\par
+output:\par
+"FIRST_NAME"\tab "SALARY"\tab "COMMISSION_PCT"\tab "HIRE_DATE"\par
+"Alexander"\tab 9000\tab\tab 03-JAN-06\par
+"Bruce"\tab 6000\tab\tab 21-MAY-07\par
+"David"\tab 4800\tab\tab 25-JUN-05\par
+"Valli"\tab 4800\tab\tab 05-FEB-06\par
+"Diana"\tab 4200\tab\tab 07-FEB-07\par
+"Daniel"\tab 9000\tab\tab 16-AUG-02\par
+"John"\tab 8200\tab\tab 28-SEP-05\par
+"Ismael"\tab 7700\tab\tab 30-SEP-05\par
+"Jose Manuel"\tab 7800\tab\tab 07-MAR-06\par
+"Luis"\tab 6900\tab\tab 07-DEC-07\par
+"Alexander"\tab 3100\tab\tab 18-MAY-03\par
+"Shelli"\tab 2900\tab\tab 24-DEC-05\par
+"Sigal"\tab 2800\tab\tab 24-JUL-05\par
+"Guy"\tab 2600\tab\tab 15-NOV-06\par
+"Karen"\tab 2500\tab\tab 10-AUG-07\par
+"Matthew"\tab 8000\tab\tab 18-JUL-04\par
+"Adam"\tab 8200\tab\tab 10-APR-05\par
+"Payam"\tab 7900\tab\tab 01-MAY-03\par
+"Shanta"\tab 6500\tab\tab 10-OCT-05\par
+"Kevin"\tab 5800\tab\tab 16-NOV-07\par
+"Julia"\tab 3200\tab\tab 16-JUL-05\par
+"Irene"\tab 2700\tab\tab 28-SEP-06\par
+"James"\tab 2400\tab\tab 14-JAN-07\par
+"Steven"\tab 2200\tab\tab 08-MAR-08\par
+"Laura"\tab 3300\tab\tab 20-AUG-05\par
+"Mozhe"\tab 2800\tab\tab 30-OCT-05\par
+"James"\tab 2500\tab\tab 16-FEB-05\par
+"TJ"\tab 2100\tab\tab 10-APR-07\par
+"Jason"\tab 3300\tab\tab 14-JUN-04\par
+"Michael"\tab 2900\tab\tab 26-AUG-06\par
+"Ki"\tab 2400\tab\tab 12-DEC-07\par
+"Hazel"\tab 2200\tab\tab 06-FEB-08\par
+"Renske"\tab 3600\tab\tab 14-JUL-03\par
+"Stephen"\tab 3200\tab\tab 26-OCT-05\par
+"John"\tab 2700\tab\tab 12-FEB-06\par
+"Joshua"\tab 2500\tab\tab 06-APR-06\par
+"Trenna"\tab 3500\tab\tab 17-OCT-03\par
+"Curtis"\tab 3100\tab\tab 29-JAN-05\par
+"Randall"\tab 2600\tab\tab 15-MAR-06\par
+"Peter"\tab 2500\tab\tab 09-JUL-06\par
+"David"\tab 9500\tab 0.25\tab 24-MAR-05\par
+"Peter"\tab 9000\tab 0.25\tab 20-AUG-05\par
+"Christopher"\tab 8000\tab 0.2\tab 30-MAR-06\par
+"Nanette"\tab 7500\tab 0.2\tab 09-DEC-06\par
+"Oliver"\tab 7000\tab 0.15\tab 23-NOV-07\par
+"Patrick"\tab 9500\tab 0.35\tab 04-MAR-04\par
+"Allan"\tab 9000\tab 0.35\tab 01-AUG-04\par
+"Lindsey"\tab 8000\tab 0.3\tab 10-MAR-05\par
+"Louise"\tab 7500\tab 0.3\tab 15-DEC-05\par
+"Sarath"\tab 7000\tab 0.25\tab 03-NOV-06\par
+"Danielle"\tab 9500\tab 0.15\tab 19-MAR-07\par
+"Mattea"\tab 7200\tab 0.1\tab 24-JAN-08\par
+"David"\tab 6800\tab 0.1\tab 23-FEB-08\par
+"Sundar"\tab 6400\tab 0.1\tab 24-MAR-08\par
+"Amit"\tab 6200\tab 0.1\tab 21-APR-08\par
+"Tayler"\tab 9600\tab 0.2\tab 24-JAN-06\par
+"William"\tab 7400\tab 0.15\tab 23-FEB-07\par
+"Elizabeth"\tab 7300\tab 0.15\tab 24-MAR-07\par
+"Sundita"\tab 6100\tab 0.1\tab 21-APR-08\par
+"Alyssa"\tab 8800\tab 0.25\tab 19-MAR-05\par
+"Jonathon"\tab 8600\tab 0.2\tab 24-MAR-06\par
+"Jack"\tab 8400\tab 0.2\tab 23-APR-06\par
+"Kimberely"\tab 7000\tab 0.15\tab 24-MAY-07\par
+"Charles"\tab 6200\tab 0.1\tab 04-JAN-08\par
+"Winston"\tab 3200\tab\tab 24-JAN-06\par
+"Jean"\tab 3100\tab\tab 23-FEB-06\par
+"Martha"\tab 2500\tab\tab 21-JUN-07\par
+"Girard"\tab 2800\tab\tab 03-FEB-08\par
+"Nandita"\tab 4200\tab\tab 27-JAN-04\par
+"Alexis"\tab 4100\tab\tab 20-FEB-05\par
+"Julia"\tab 3400\tab\tab 24-JUN-06\par
+"Anthony"\tab 3000\tab\tab 07-FEB-07\par
+"Kelly"\tab 3800\tab\tab 14-JUN-05\par
+"Jennifer"\tab 3600\tab\tab 13-AUG-05\par
+"Timothy"\tab 2900\tab\tab 11-JUL-06\par
+"Randall"\tab 2500\tab\tab 19-DEC-07\par
+"Sarah"\tab 4000\tab\tab 04-FEB-04\par
+"Britney"\tab 3900\tab\tab 03-MAR-05\par
+"Samuel"\tab 3200\tab\tab 01-JUL-06\par
+"Vance"\tab 2800\tab\tab 17-MAR-07\par
+"Alana"\tab 3100\tab\tab 24-APR-06\par
+"Kevin"\tab 3000\tab\tab 23-MAY-06\par
+"Donald"\tab 2600\tab\tab 21-JUN-07\par
+"Douglas"\tab 2600\tab\tab 13-JAN-08\par
+"Jennifer"\tab 4400\tab\tab 17-SEP-03\par
+"Pat"\tab 6000\tab\tab 17-AUG-05\par
+"Susan"\tab 6500\tab\tab 07-JUN-02\par
+"William"\tab 8300\tab\tab 07-JUN-02\par
+\par
+\par
+\b 7. Display job Title, the difference between minimum and maximum salaries for jobs with max salary in the range 10000 to 20000.\par
+\b0\par
+\cf1 query:\par
+select job_title,(max_salary-min_salary)as min_max_diff\par
+from jobs\par
+where max_salary between 10000 and 20000;\par
+\cf0\par
+\par
+output:\par
+"JOB_TITLE"\tab "MIN_MAX_DIFF"\par
+"Finance Manager"\tab 7800\par
+"Accounting Manager"\tab 7800\par
+"Sales Representative"\tab 6008\par
+"Purchasing Manager"\tab 7000\par
+"Programmer"\tab 6000\par
+"Marketing Manager"\tab 6000\par
+"Public Relations Representative"\tab 6000\par
+\par
+\b 8.Display first name, salary, and round the salary to thousands.\par
+\cf1\b0\par
+query:\par
+select first_name,round(salary,-3)\par
+from employees;\cf0\par
+\par
+output:\par
+"FIRST_NAME"\tab "ROUND(SALARY,-3)"\par
+"Steven"\tab 24000\par
+"Neena"\tab 17000\par
+"Lex"\tab 17000\par
+"Alexander"\tab 9000\par
+"Bruce"\tab 6000\par
+"David"\tab 5000\par
+"Valli"\tab 5000\par
+"Diana"\tab 4000\par
+"Nancy"\tab 12000\par
+"Daniel"\tab 9000\par
+"John"\tab 8000\par
+"Ismael"\tab 8000\par
+"Jose Manuel"\tab 8000\par
+"Luis"\tab 7000\par
+"Den"\tab 11000\par
+"Alexander"\tab 3000\par
+"Shelli"\tab 3000\par
+"Sigal"\tab 3000\par
+"Guy"\tab 3000\par
+"Karen"\tab 3000\par
+"Matthew"\tab 8000\par
+"Adam"\tab 8000\par
+"Payam"\tab 8000\par
+"Shanta"\tab 7000\par
+"Kevin"\tab 6000\par
+"Julia"\tab 3000\par
+"Irene"\tab 3000\par
+"James"\tab 2000\par
+"Steven"\tab 2000\par
+"Laura"\tab 3000\par
+"Mozhe"\tab 3000\par
+"James"\tab 3000\par
+"TJ"\tab 2000\par
+"Jason"\tab 3000\par
+"Michael"\tab 3000\par
+"Ki"\tab 2000\par
+"Hazel"\tab 2000\par
+"Renske"\tab 4000\par
+"Stephen"\tab 3000\par
+"John"\tab 3000\par
+"Joshua"\tab 3000\par
+"Trenna"\tab 4000\par
+"Curtis"\tab 3000\par
+"Randall"\tab 3000\par
+"Peter"\tab 3000\par
+"John"\tab 14000\par
+"Karen"\tab 14000\par
+"Alberto"\tab 12000\par
+"Gerald"\tab 11000\par
+"Eleni"\tab 11000\par
+"Peter"\tab 10000\par
+"David"\tab 10000\par
+"Peter"\tab 9000\par
+"Christopher"\tab 8000\par
+"Nanette"\tab 8000\par
+"Oliver"\tab 7000\par
+"Janette"\tab 10000\par
+"Patrick"\tab 10000\par
+"Allan"\tab 9000\par
+"Lindsey"\tab 8000\par
+"Louise"\tab 8000\par
+"Sarath"\tab 7000\par
+"Clara"\tab 11000\par
+"Danielle"\tab 10000\par
+"Mattea"\tab 7000\par
+"David"\tab 7000\par
+"Sundar"\tab 6000\par
+"Amit"\tab 6000\par
+"Lisa"\tab 12000\par
+"Harrison"\tab 10000\par
+"Tayler"\tab 10000\par
+"William"\tab 7000\par
+"Elizabeth"\tab 7000\par
+"Sundita"\tab 6000\par
+"Ellen"\tab 11000\par
+"Alyssa"\tab 9000\par
+"Jonathon"\tab 9000\par
+"Jack"\tab 8000\par
+"Kimberely"\tab 7000\par
+"Charles"\tab 6000\par
+"Winston"\tab 3000\par
+"Jean"\tab 3000\par
+"Martha"\tab 3000\par
+"Girard"\tab 3000\par
+"Nandita"\tab 4000\par
+"Alexis"\tab 4000\par
+"Julia"\tab 3000\par
+"Anthony"\tab 3000\par
+"Kelly"\tab 4000\par
+"Jennifer"\tab 4000\par
+"Timothy"\tab 3000\par
+"Randall"\tab 3000\par
+"Sarah"\tab 4000\par
+"Britney"\tab 4000\par
+"Samuel"\tab 3000\par
+"Vance"\tab 3000\par
+"Alana"\tab 3000\par
+"Kevin"\tab 3000\par
+"Donald"\tab 3000\par
+"Douglas"\tab 3000\par
+"Jennifer"\tab 4000\par
+"Michael"\tab 13000\par
+"Pat"\tab 6000\par
+"Susan"\tab 7000\par
+"Hermann"\tab 10000\par
+"Shelley"\tab 12000\par
+"William"\tab 8000\par
+\par
+\b 9.Display details of jobs in the descending order of the title.\par
+\b0\par
+\cf1 query:\par
+select *\par
+from jobs\par
+Order by job_title desc;\par
+\cf0\par
+output:\par
+"JOB_ID"\tab "JOB_TITLE"\tab "MIN_SALARY"\tab "MAX_SALARY"\par
+"ST_MAN"\tab "Stock Manager"\tab 5500\tab 8500\par
+"ST_CLERK"\tab "Stock Clerk"\tab 2008\tab 5000\par
+"SH_CLERK"\tab "Shipping Clerk"\tab 2500\tab 5500\par
+"SA_REP"\tab "Sales Representative"\tab 6000\tab 12008\par
+"SA_MAN"\tab "Sales Manager"\tab 10000\tab 20080\par
+"PU_MAN"\tab "Purchasing Manager"\tab 8000\tab 15000\par
+"PU_CLERK"\tab "Purchasing Clerk"\tab 2500\tab 5500\par
+"PR_REP"\tab "Public Relations Representative"\tab 4500\tab 10500\par
+"AC_ACCOUNT"\tab "Public Accountant"\tab 4200\tab 9000\par
+"IT_PROG"\tab "Programmer"\tab 4000\tab 10000\par
+"AD_PRES"\tab "President"\tab 20080\tab 40000\par
+"MK_REP"\tab "Marketing Representative"\tab 4000\tab 9000\par
+"MK_MAN"\tab "Marketing Manager"\tab 9000\tab 15000\par
+"HR_REP"\tab "Human Resources Representative"\tab 4000\tab 9000\par
+"FI_MGR"\tab "Finance Manager"\tab 8200\tab 16000\par
+"AD_VP"\tab "Administration Vice President"\tab 15000\tab 30000\par
+"AD_ASST"\tab "Administration Assistant"\tab 3000\tab 6000\par
+"AC_MGR"\tab "Accounting Manager"\tab 8200\tab 16000\par
+"FI_ACCOUNT"\tab "Accountant"\tab 4200\tab 9000\par
+\par
+\b 10.Display employees where the first name or last name starts with S.\b0\par
+\par
+\cf1 query:\par
+select first_name,last_name\par
+from employees\par
+where\par
+substr(first_name,0,1) = 'S' or\par
+substr(last_name,0,1) = 'S';\cf0\par
+\par
+Output:\par
+"FIRST_NAME"\tab "LAST_NAME"\par
+"Steven"\tab "King"\par
+"Ismael"\tab "Sciarra"\par
+"Shelli"\tab "Baida"\par
+"Sigal"\tab "Tobias"\par
+"Shanta"\tab "Vollman"\par
+"Steven"\tab "Markle"\par
+"Stephen"\tab "Stiles"\par
+"John"\tab "Seo"\par
+"Patrick"\tab "Sully"\par
+"Lindsey"\tab "Smith"\par
+"Sarath"\tab "Sewall"\par
+"Sundar"\tab "Ande"\par
+"William"\tab "Smith"\par
+"Sundita"\tab "Kumar"\par
+"Martha"\tab "Sullivan"\par
+"Nandita"\tab "Sarchand"\par
+"Sarah"\tab "Bell"\par
+"Samuel"\tab "McCain"\par
+"Susan"\tab "Mavris"\par
+"Shelley"\tab "Higgins"\par
+\par
+\par
+\b 11.Display employees who joined in the month of May.\b0\par
+\par
+\cf1 query:\par
+select first_name,last_name\par
+from employees\par
+where substr(hire_date,4,3) = 'MAY';\cf0\par
+\par
+output:\par
+"FIRST_NAME"\tab "LAST_NAME"\par
+"Bruce"\tab "Ernst"\par
+"Alexander"\tab "Khoo"\par
+"Payam"\tab "Kaufling"\par
+"Ellen"\tab "Abel"\par
+"Kimberely"\tab "Grant"\par
+"Kevin"\tab "Feeney"\par
+\par
+\b 13.Display details of the employees where commission percentage is null and salary in the range 5000 to 10000 and department is 30.\par
+\b0\par
+\cf1 query:\par
+select *\par
+from employees\par
+where commission_pct is null;\par
+and salary between 5000 and 10000\par
+and department_id = 30;\cf0\par
+\par
+output:\par
+No employee follows the criteria\par
+\par
+\b 13.Display first name and date of first salary of the employees.\par
+\b0\par
+\cf1 query:\par
+select first_name,round(to_date(hire_date),'month')\par
+from employees;\cf0\par
+\par
+output:\par
+"FIRST_NAME"\tab "ROUND(TO_DATE(HIRE_DATE),'MONTH')"\par
+"Steven"\tab 01-JUL-03\par
+"Neena"\tab 01-OCT-05\par
+"Lex"\tab 01-JAN-01\par
+"Alexander"\tab 01-JAN-06\par
+"Bruce"\tab 01-JUN-07\par
+"David"\tab 01-JUL-05\par
+"Valli"\tab 01-FEB-06\par
+"Diana"\tab 01-FEB-07\par
+"Nancy"\tab 01-SEP-02\par
+"Daniel"\tab 01-SEP-02\par
+"John"\tab 01-OCT-05\par
+"Ismael"\tab 01-OCT-05\par
+"Jose Manuel"\tab 01-MAR-06\par
+"Luis"\tab 01-DEC-07\par
+"Den"\tab 01-DEC-02\par
+"Alexander"\tab 01-JUN-03\par
+"Shelli"\tab 01-JAN-06\par
+"Sigal"\tab 01-AUG-05\par
+"Guy"\tab 01-NOV-06\par
+"Karen"\tab 01-AUG-07\par
+"Matthew"\tab 01-AUG-04\par
+"Adam"\tab 01-APR-05\par
+"Payam"\tab 01-MAY-03\par
+"Shanta"\tab 01-OCT-05\par
+"Kevin"\tab 01-DEC-07\par
+"Julia"\tab 01-AUG-05\par
+"Irene"\tab 01-OCT-06\par
+"James"\tab 01-JAN-07\par
+"Steven"\tab 01-MAR-08\par
+"Laura"\tab 01-SEP-05\par
+"Mozhe"\tab 01-NOV-05\par
+"James"\tab 01-MAR-05\par
+"TJ"\tab 01-APR-07\par
+"Jason"\tab 01-JUN-04\par
+"Michael"\tab 01-SEP-06\par
+"Ki"\tab 01-DEC-07\par
+"Hazel"\tab 01-FEB-08\par
+"Renske"\tab 01-JUL-03\par
+"Stephen"\tab 01-NOV-05\par
+"John"\tab 01-FEB-06\par
+"Joshua"\tab 01-APR-06\par
+"Trenna"\tab 01-NOV-03\par
+"Curtis"\tab 01-FEB-05\par
+"Randall"\tab 01-MAR-06\par
+"Peter"\tab 01-JUL-06\par
+"John"\tab 01-OCT-04\par
+"Karen"\tab 01-JAN-05\par
+"Alberto"\tab 01-MAR-05\par
+"Gerald"\tab 01-OCT-07\par
+"Eleni"\tab 01-FEB-08\par
+"Peter"\tab 01-FEB-05\par
+"David"\tab 01-APR-05\par
+"Peter"\tab 01-SEP-05\par
+"Christopher"\tab 01-APR-06\par
+"Nanette"\tab 01-DEC-06\par
+"Oliver"\tab 01-DEC-07\par
+"Janette"\tab 01-FEB-04\par
+"Patrick"\tab 01-MAR-04\par
+"Allan"\tab 01-AUG-04\par
+"Lindsey"\tab 01-MAR-05\par
+"Louise"\tab 01-DEC-05\par
+"Sarath"\tab 01-NOV-06\par
+"Clara"\tab 01-NOV-05\par
+"Danielle"\tab 01-APR-07\par
+"Mattea"\tab 01-FEB-08\par
+"David"\tab 01-MAR-08\par
+"Sundar"\tab 01-APR-08\par
+"Amit"\tab 01-MAY-08\par
+"Lisa"\tab 01-MAR-05\par
+"Harrison"\tab 01-APR-06\par
+"Tayler"\tab 01-FEB-06\par
+"William"\tab 01-MAR-07\par
+"Elizabeth"\tab 01-APR-07\par
+"Sundita"\tab 01-MAY-08\par
+"Ellen"\tab 01-MAY-04\par
+"Alyssa"\tab 01-APR-05\par
+"Jonathon"\tab 01-APR-06\par
+"Jack"\tab 01-MAY-06\par
+"Kimberely"\tab 01-JUN-07\par
+"Charles"\tab 01-JAN-08\par
+"Winston"\tab 01-FEB-06\par
+"Jean"\tab 01-MAR-06\par
+"Martha"\tab 01-JUL-07\par
+"Girard"\tab 01-FEB-08\par
+"Nandita"\tab 01-FEB-04\par
+"Alexis"\tab 01-MAR-05\par
+"Julia"\tab 01-JUL-06\par
+"Anthony"\tab 01-FEB-07\par
+"Kelly"\tab 01-JUN-05\par
+"Jennifer"\tab 01-AUG-05\par
+"Timothy"\tab 01-JUL-06\par
+"Randall"\tab 01-JAN-08\par
+"Sarah"\tab 01-FEB-04\par
+"Britney"\tab 01-MAR-05\par
+"Samuel"\tab 01-JUL-06\par
+"Vance"\tab 01-APR-07\par
+"Alana"\tab 01-MAY-06\par
+"Kevin"\tab 01-JUN-06\par
+"Donald"\tab 01-JUL-07\par
+"Douglas"\tab 01-JAN-08\par
+"Jennifer"\tab 01-OCT-03\par
+"Michael"\tab 01-MAR-04\par
+"Pat"\tab 01-SEP-05\par
+"Susan"\tab 01-JUN-02\par
+"Hermann"\tab 01-JUN-02\par
+"Shelley"\tab 01-JUN-02\par
+"William"\tab 01-JUN-02\par
+\par
+\b 14. Display first name and experience of the employees.\par
+\b0\par
+\cf1 query:\par
+select first_name,round((sysdate-hire_date),0) as Experience\par
+from employees;\par
+\cf0\par
+output:\par
+"FIRST_NAME"\tab "EXPERIENCE"\par
+"Steven"\tab 4452\par
+"Neena"\tab 3625\par
+"Lex"\tab 5337\par
+"Alexander"\tab 3521\par
+"Bruce"\tab 3018\par
+"David"\tab 3713\par
+"Valli"\tab 3488\par
+"Diana"\tab 3121\par
+"Nancy"\tab 4756\par
+"Daniel"\tab 4757\par
+"John"\tab 3618\par
+"Ismael"\tab 3616\par
+"Jose Manuel"\tab 3458\par
+"Luis"\tab 2818\par
+"Den"\tab 4644\par
+"Alexander"\tab 4482\par
+"Shelli"\tab 3531\par
+"Sigal"\tab 3684\par
+"Guy"\tab 3205\par
+"Karen"\tab 2937\par
+"Matthew"\tab 4055\par
+"Adam"\tab 3789\par
+"Payam"\tab 4499\par
+"Shanta"\tab 3606\par
+"Kevin"\tab 2839\par
+"Julia"\tab 3692\par
+"Irene"\tab 3253\par
+"James"\tab 3145\par
+"Steven"\tab 2726\par
+"Laura"\tab 3657\par
+"Mozhe"\tab 3586\par
+"James"\tab 3842\par
+"TJ"\tab 3059\par
+"Jason"\tab 4089\par
+"Michael"\tab 3286\par
+"Ki"\tab 2813\par
+"Hazel"\tab 2757\par
+"Renske"\tab 4425\par
+"Stephen"\tab 3590\par
+"John"\tab 3481\par
+"Joshua"\tab 3428\par
+"Trenna"\tab 4330\par
+"Curtis"\tab 3860\par
+"Randall"\tab 3450\par
+"Peter"\tab 3334\par
+"John"\tab 3980\par
+"Karen"\tab 3884\par
+"Alberto"\tab 3820\par
+"Gerald"\tab 2871\par
+"Eleni"\tab 2765\par
+"Peter"\tab 3859\par
+"David"\tab 3806\par
+"Peter"\tab 3657\par
+"Christopher"\tab 3435\par
+"Nanette"\tab 3181\par
+"Oliver"\tab 2832\par
+"Janette"\tab 4225\par
+"Patrick"\tab 4191\par
+"Allan"\tab 4041\par
+"Lindsey"\tab 3820\par
+"Louise"\tab 3540\par
+"Sarath"\tab 3217\par
+"Clara"\tab 3574\par
+"Danielle"\tab 3081\par
+"Mattea"\tab 2770\par
+"David"\tab 2740\par
+"Sundar"\tab 2710\par
+"Amit"\tab 2682\par
+"Lisa"\tab 3819\par
+"Harrison"\tab 3442\par
+"Tayler"\tab 3500\par
+"William"\tab 3105\par
+"Elizabeth"\tab 3076\par
+"Sundita"\tab 2682\par
+"Ellen"\tab 4123\par
+"Alyssa"\tab 3811\par
+"Jonathon"\tab 3441\par
+"Jack"\tab 3411\par
+"Kimberely"\tab 3015\par
+"Charles"\tab 2790\par
+"Winston"\tab 3500\par
+"Jean"\tab 3470\par
+"Martha"\tab 2987\par
+"Girard"\tab 2760\par
+"Nandita"\tab 4228\par
+"Alexis"\tab 3838\par
+"Julia"\tab 3349\par
+"Anthony"\tab 3121\par
+"Kelly"\tab 3724\par
+"Jennifer"\tab 3664\par
+"Timothy"\tab 3332\par
+"Randall"\tab 2806\par
+"Sarah"\tab 4220\par
+"Britney"\tab 3827\par
+"Samuel"\tab 3342\par
+"Vance"\tab 3083\par
+"Alana"\tab 3410\par
+"Kevin"\tab 3381\par
+"Donald"\tab 2987\par
+"Douglas"\tab 2781\par
+"Jennifer"\tab 4360\par
+"Michael"\tab 4207\par
+"Pat"\tab 3660\par
+"Susan"\tab 4827\par
+"Hermann"\tab 4827\par
+"Shelley"\tab 4827\par
+"William"\tab 4827\par
+\par
+\b 15.Display first name of employees who joined in 2001.\par
+\cf1\b0\par
+query:\par
+select first_name\par
+from employees\par
+where to_char(hire_date,'yyyy') = '2001';\cf0\par
+\par
+output:\par
+"FIRST_NAME"\par
+Lex\par
+\par
+\par
+\b 16.Display first name and last name after converting the first letter of each name to upper case and the rest to lower case.\par
+\b0\par
+\cf1 query:\par
+select \par
+initcap(First_name),initcap(last_name)\par
+from employees;\par
+\cf0\par
+output:\par
+"INITCAP(FIRST_NAME)"\tab "INITCAP(LAST_NAME)"\par
+"Steven"\tab "King"\par
+"Neena"\tab "Kochhar"\par
+"Lex"\tab "De Haan"\par
+"Alexander"\tab "Hunold"\par
+"Bruce"\tab "Ernst"\par
+"David"\tab "Austin"\par
+"Valli"\tab "Pataballa"\par
+"Diana"\tab "Lorentz"\par
+"Nancy"\tab "Greenberg"\par
+"Daniel"\tab "Faviet"\par
+"John"\tab "Chen"\par
+"Ismael"\tab "Sciarra"\par
+"Jose Manuel"\tab "Urman"\par
+"Luis"\tab "Popp"\par
+"Den"\tab "Raphaely"\par
+"Alexander"\tab "Khoo"\par
+"Shelli"\tab "Baida"\par
+"Sigal"\tab "Tobias"\par
+"Guy"\tab "Himuro"\par
+"Karen"\tab "Colmenares"\par
+"Matthew"\tab "Weiss"\par
+"Adam"\tab "Fripp"\par
+"Payam"\tab "Kaufling"\par
+"Shanta"\tab "Vollman"\par
+"Kevin"\tab "Mourgos"\par
+"Julia"\tab "Nayer"\par
+"Irene"\tab "Mikkilineni"\par
+"James"\tab "Landry"\par
+"Steven"\tab "Markle"\par
+"Laura"\tab "Bissot"\par
+"Mozhe"\tab "Atkinson"\par
+"James"\tab "Marlow"\par
+"Tj"\tab "Olson"\par
+"Jason"\tab "Mallin"\par
+"Michael"\tab "Rogers"\par
+"Ki"\tab "Gee"\par
+"Hazel"\tab "Philtanker"\par
+"Renske"\tab "Ladwig"\par
+"Stephen"\tab "Stiles"\par
+"John"\tab "Seo"\par
+"Joshua"\tab "Patel"\par
+"Trenna"\tab "Rajs"\par
+"Curtis"\tab "Davies"\par
+"Randall"\tab "Matos"\par
+"Peter"\tab "Vargas"\par
+"John"\tab "Russell"\par
+"Karen"\tab "Partners"\par
+"Alberto"\tab "Errazuriz"\par
+"Gerald"\tab "Cambrault"\par
+"Eleni"\tab "Zlotkey"\par
+"Peter"\tab "Tucker"\par
+"David"\tab "Bernstein"\par
+"Peter"\tab "Hall"\par
+"Christopher"\tab "Olsen"\par
+"Nanette"\tab "Cambrault"\par
+"Oliver"\tab "Tuvault"\par
+"Janette"\tab "King"\par
+"Patrick"\tab "Sully"\par
+"Allan"\tab "Mcewen"\par
+"Lindsey"\tab "Smith"\par
+"Louise"\tab "Doran"\par
+"Sarath"\tab "Sewall"\par
+"Clara"\tab "Vishney"\par
+"Danielle"\tab "Greene"\par
+"Mattea"\tab "Marvins"\par
+"David"\tab "Lee"\par
+"Sundar"\tab "Ande"\par
+"Amit"\tab "Banda"\par
+"Lisa"\tab "Ozer"\par
+"Harrison"\tab "Bloom"\par
+"Tayler"\tab "Fox"\par
+"William"\tab "Smith"\par
+"Elizabeth"\tab "Bates"\par
+"Sundita"\tab "Kumar"\par
+"Ellen"\tab "Abel"\par
+"Alyssa"\tab "Hutton"\par
+"Jonathon"\tab "Taylor"\par
+"Jack"\tab "Livingston"\par
+"Kimberely"\tab "Grant"\par
+"Charles"\tab "Johnson"\par
+"Winston"\tab "Taylor"\par
+"Jean"\tab "Fleaur"\par
+"Martha"\tab "Sullivan"\par
+"Girard"\tab "Geoni"\par
+"Nandita"\tab "Sarchand"\par
+"Alexis"\tab "Bull"\par
+"Julia"\tab "Dellinger"\par
+"Anthony"\tab "Cabrio"\par
+"Kelly"\tab "Chung"\par
+"Jennifer"\tab "Dilly"\par
+"Timothy"\tab "Gates"\par
+"Randall"\tab "Perkins"\par
+"Sarah"\tab "Bell"\par
+"Britney"\tab "Everett"\par
+"Samuel"\tab "Mccain"\par
+"Vance"\tab "Jones"\par
+"Alana"\tab "Walsh"\par
+"Kevin"\tab "Feeney"\par
+"Donald"\tab "Oconnell"\par
+"Douglas"\tab "Grant"\par
+"Jennifer"\tab "Whalen"\par
+"Michael"\tab "Hartstein"\par
+"Pat"\tab "Fay"\par
+"Susan"\tab "Mavris"\par
+"Hermann"\tab "Baer"\par
+"Shelley"\tab "Higgins"\par
+"William"\tab "Gietz"\par
+\par
+\b 17. Display the first word in job title.\b0\par
+\par
+\cf1 query:\par
+select substr(job_title,1,instr(job_title,' ')-1)\par
+from jobs;\par
+\cf0\par
+Output:\par
+"SUBSTR(JOB_TITLE,1,INSTR(JOB_TITLE,'')-2)"\par
+""\par
+"Administratio"\par
+"Administratio"\par
+"Financ"\par
+""\par
+"Accountin"\par
+"Publi"\par
+"Sale"\par
+"Sale"\par
+"Purchasin"\par
+"Purchasin"\par
+"Stoc"\par
+"Stoc"\par
+"Shippin"\par
+""\par
+"Marketin"\par
+"Marketin"\par
+"Huma"\par
+"Publi"\par
+\par
+\b 18. Display the length of first name for employees where last name contain character \lquote b\rquote  after 3rd position.\par
+\b0\par
+\cf1 Query:\par
+select length(first_name) as Len_first_name\par
+from employees\par
+where instr(last_name,'b') >3;\cf0\par
+\par
+Output:\par
+"LEN_FIRST_NAME"\par
+5\par
+5\par
+6\par
+7\par
+\par
+\par
+\b 19. Display first name in upper case and email address in lower case for employees where the first name and email address are same irrespective of the case.\par
+\b0\par
+\cf1 Query:\par
+select upper(first_name),lower(email)\par
+from employees\par
+where lower(email)=lower(first_name);\par
+\cf0\par
+Output:\par
+No employee follows the above criteria\par
+\par
+\par
+\b 20. Display employees who joined in the current year.\b0\par
+\par
+\cf1 query:\par
+select first_name\par
+from employees\par
+where to_char(hire_date,'yyyy') = to_char(sysdate,'yyyy');\par
+\cf0\par
+Output:\par
+No employee joined in the current year\par
+\par
+\par
+\b 21. Display the number of days between system date and 1st January 2011.\par
+\b0\par
+\cf1 query:\par
+select round(sysdate-to_date('01-jan-2011'),0)\par
+from dual;\par
+\cf0\par
+output:\par
+1697 \par
+\par
+\par
+\par
+\b 22.Display how many employees joined in each month of the current year.\par
+\cf1\b0\par
+query:\par
+select to_char(hire_date,'mm'),count(*)\par
+from employees\par
+where to_char(hire_date,'yyyy')= to_char(sysdate,'yyyy')\par
+group by to_char(hire_date,'mm');\par
+\cf0\par
+output:\par
+No employee in the current year\par
+\par
+\b 23. Display manager ID and number of employees managed by the manager.\par
+\b0\par
+\cf1 query:\par
+select manager_id,count(*)\par
+from employees\par
+where manager_id is not null\par
+group by manager_id\par
+order by manager_id;\par
+\par
+\cf0 output:\par
+"MANAGER_ID"\tab "COUNT(*)"\par
+100\tab 14\par
+101\tab 5\par
+102\tab 1\par
+103\tab 4\par
+108\tab 5\par
+114\tab 5\par
+120\tab 8\par
+121\tab 8\par
+122\tab 8\par
+123\tab 8\par
+124\tab 8\par
+145\tab 6\par
+146\tab 6\par
+147\tab 6\par
+148\tab 6\par
+149\tab 6\par
+201\tab 1\par
+205\tab 1\par
+\par
+\b 24. Display employee ID and the date on which he ended his previous job.\par
+\b0\par
+\cf1 Query:\par
+select employee_id,max(end_date)as Prev_job_end\par
+from job_history\par
+group by employee_id\par
+order by employee_id;\par
+\cf0\par
+Output:\par
+"EMPLOYEE_ID"\tab "PREV_JOB_END"\par
+101\tab 15-MAR-05\par
+102\tab 24-JUL-06\par
+114\tab 31-DEC-07\par
+122\tab 31-DEC-07\par
+176\tab 31-DEC-07\par
+200\tab 31-DEC-06\par
+201\tab 19-DEC-07\par
+\par
+\b 25.Display number of employees joined after 15th of the month.\b0\par
+\par
+\cf1 Query:\par
+select count(*)\par
+from employees\par
+where to_char(hire_date,'dd') > 15;\par
+\cf0\par
+Output:\par
+57\par
+\par
+\b 26.Display the country ID and number of cities we have in the country.\b0\par
+\par
+\cf1 Query:\par
+select country_id,count(distinct city)\par
+from locations\par
+group by country_id\par
+order by count(distinct city)desc;\cf0\par
+\par
+Output:\par
+"COUNTRY_ID"\tab "COUNT(DISTINCTCITY)"\par
+"US"\tab 4\par
+"UK"\tab 3\par
+"CH"\tab 2\par
+"IT"\tab 2\par
+"JP"\tab 2\par
+"CA"\tab 2\par
+"BR"\tab 1\par
+"AU"\tab 1\par
+"IN"\tab 1\par
+"CN"\tab 1\par
+"NL"\tab 1\par
+"MX"\tab 1\par
+"SG"\tab 1\par
+"DE"\tab 1\par
+\par
+\par
+\b 27.Display average salary of employees in each department who have commission percentage.\par
+\b0\par
+\cf1 Query:\par
+select department_id,round(avg(salary),0)as average_salary\par
+from employees\par
+where commission_pct is not null\par
+and department_id is not null\par
+group by department_id\par
+order by department_id;\par
+\cf0\par
+Output:\par
+"DEPARTMENT_ID"\tab "AVERAGE_SALARY"\par
+80\tab 8956\par
+\par
+\b 28.Display job ID, number of employees, sum of salary, and difference between highest salary and lowest salary of the employees of the job.\par
+\b0\par
+\cf1 Query:\par
+select job_id,count(employee_id),sum(salary),(max(salary)-min(salary))\par
+from employees\par
+group by job_id\par
+order by count(employee_id)desc;\par
+\cf0\par
+Output:\par
+"JOB_ID"\tab "COUNT(EMPLOYEE_ID)"\tab "SUM(SALARY)"\tab "(MAX(SALARY)-MIN(SALARY))"\par
+"SA_REP"\tab 30\tab 250500\tab 5400\par
+"ST_CLERK"\tab 20\tab 55700\tab 1500\par
+"SH_CLERK"\tab 20\tab 64300\tab 1700\par
+"FI_ACCOUNT"\tab 5\tab 39600\tab 2100\par
+"IT_PROG"\tab 5\tab 28800\tab 4800\par
+"ST_MAN"\tab 5\tab 36400\tab 2400\par
+"SA_MAN"\tab 5\tab 61000\tab 3500\par
+"PU_CLERK"\tab 5\tab 13900\tab 600\par
+"AD_VP"\tab 2\tab 34000\tab 0\par
+"MK_REP"\tab 1\tab 6000\tab 0\par
+"AD_PRES"\tab 1\tab 24000\tab 0\par
+"PR_REP"\tab 1\tab 10000\tab 0\par
+"MK_MAN"\tab 1\tab 13000\tab 0\par
+"FI_MGR"\tab 1\tab 12008\tab 0\par
+"AD_ASST"\tab 1\tab 4400\tab 0\par
+"PU_MAN"\tab 1\tab 11000\tab 0\par
+"AC_ACCOUNT"\tab 1\tab 8300\tab 0\par
+"HR_REP"\tab 1\tab 6500\tab 0\par
+"AC_MGR"\tab 1\tab 12008\tab 0\par
+\par
+\par
+\b 29.Display job ID for jobs with average salary more than 10000.\par
+\b0\par
+\cf1 Query:\par
+select job_id, avg(salary) as avg_sal\par
+from employees\par
+group by job_id\par
+having avg(salary) > 10000;\par
+\cf0\par
+Output:\par
+"JOB_ID"\tab "AVG_SAL"\par
+"AC_MGR"\tab 12008\par
+"PU_MAN"\tab 11000\par
+"AD_VP"\tab 17000\par
+"FI_MGR"\tab 12008\par
+"SA_MAN"\tab 12200\par
+"MK_MAN"\tab 13000\par
+"AD_PRES"\tab 24000\par
+\par
+\par
+\b 30.Display years in which more than 10 employees joined.\par
+\b0\par
+\cf1 Query:\par
+select to_char(hire_date,'yyyy')\par
+from employees\par
+group by to_char(hire_date,'yyyy')\par
+having count(*)>10 ;\par
+\cf0\par
+Output:\par
+"TO_CHAR(HIRE_DATE,'YYYY')"\par
+"2005"\par
+"2008"\par
+"2007"\par
+"2006"\par
+\par
+\par
+\b 31. Display departments in which more than five employees have commission percentage.\par
+\b0\par
+\cf1 Query:\par
+select department_id\par
+from employees\par
+where commission_pct is not null\par
+group by department_id\par
+having count(*)>5;\par
+\cf0\par
+\par
+Output:\par
+"DEPARTMENT_ID"\par
+80\par
+\par
+\par
+\b 32. Display employee ID for employees who did more than one job in the past.\par
+\par
+\cf1\b0 Query:\par
+select employee_id\par
+from job_history\par
+group by employee_id\par
+having count(*)>1;\par
+\cf0\par
+Output:\par
+"EMPLOYEE_ID"\par
+101\par
+176\par
+200\par
+\par
+\b 33. Display job ID of jobs that were done by more than 3 employees for more than 100 days.\par
+\b0\par
+\cf1 Query:\par
+select job_id\par
+from job_history\par
+where (end_date-start_date)>100\par
+group by job_id\par
+having count(distinct employee_id)>3;\par
+\cf0\par
+Output:\par
+No employees with the given criteria\par
+\par
+\b 34. Display department ID, year, and Number of employees joined.\par
+\b0\par
+\cf1 Query:\par
+select department_id,to_char(hire_date,'yyyy'),count(*)\par
+from employees\par
+group by department_id,to_char(hire_date,'yyyy')\par
+order by department_id,to_char(hire_date,'yyyy');\par
+\cf0\par
+Output:\par
+"DEPARTMENT_ID"\tab "TO_CHAR(HIRE_DATE,'YYYY')"\tab "COUNT(*)"\par
+10\tab "2003"\tab 1\par
+20\tab "2004"\tab 1\par
+20\tab "2005"\tab 1\par
+30\tab "2002"\tab 1\par
+30\tab "2003"\tab 1\par
+30\tab "2005"\tab 2\par
+30\tab "2006"\tab 1\par
+30\tab "2007"\tab 1\par
+40\tab "2002"\tab 1\par
+50\tab "2003"\tab 3\par
+50\tab "2004"\tab 4\par
+50\tab "2005"\tab 12\par
+50\tab "2006"\tab 13\par
+50\tab "2007"\tab 9\par
+50\tab "2008"\tab 4\par
+60\tab "2005"\tab 1\par
+60\tab "2006"\tab 2\par
+60\tab "2007"\tab 2\par
+70\tab "2002"\tab 1\par
+80\tab "2004"\tab 5\par
+80\tab "2005"\tab 10\par
+80\tab "2006"\tab 7\par
+80\tab "2007"\tab 5\par
+80\tab "2008"\tab 7\par
+90\tab "2001"\tab 1\par
+90\tab "2003"\tab 1\par
+90\tab "2005"\tab 1\par
+100\tab "2002"\tab 2\par
+100\tab "2005"\tab 2\par
+100\tab "2006"\tab 1\par
+100\tab "2007"\tab 1\par
+110\tab "2002"\tab 2\par
+\tab "2007"\tab 1\par
+\par
+\b 35. Display departments where any manager is managing more than 5 employees.\par
+\b0\par
+\pard\sl276\slmult1\cf1 Query:\par
+select distinct department_id\par
+from employees\par
+where manager_id is not null\par
+group by department_id,manager_id\par
+having count(*)>5;\par
+\cf0\par
+Output:\par
+"DEPARTMENT_ID"\par
+80\par
+50\par
+}
+ 
